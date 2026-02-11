@@ -1,0 +1,354 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "5f7ac10bc11768f9fa34798f29d867a8",
+    "entities": [
+      {
+        "tableName": "notifications",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `key` TEXT NOT NULL, `source` TEXT NOT NULL, `package_name` TEXT NOT NULL, `type` TEXT NOT NULL, `post_time` INTEGER NOT NULL, `capture_time` INTEGER NOT NULL, `title` TEXT, `text` TEXT, `big_text` TEXT, `conversation_title` TEXT, `info_text` TEXT, `sub_text` TEXT, `text_lines` TEXT, `people_list` TEXT, `sender_name` TEXT, `remote_channel` TEXT, `remote_thread` TEXT, `category` TEXT, `channel_id` TEXT, `flags` INTEGER NOT NULL, `is_ongoing` INTEGER NOT NULL, `actions` TEXT, `content_hash` TEXT NOT NULL, `was_cancelled` INTEGER NOT NULL, `marked_read` INTEGER NOT NULL, `is_deleted` INTEGER NOT NULL, `money_type` TEXT, `money_amount` REAL, `money_currency` TEXT, `requires_action` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "key",
+            "columnName": "key",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "source",
+            "columnName": "source",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "packageName",
+            "columnName": "package_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "postTime",
+            "columnName": "post_time",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "captureTime",
+            "columnName": "capture_time",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "text",
+            "columnName": "text",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "bigText",
+            "columnName": "big_text",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "conversationTitle",
+            "columnName": "conversation_title",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "infoText",
+            "columnName": "info_text",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "subText",
+            "columnName": "sub_text",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "textLines",
+            "columnName": "text_lines",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "peopleList",
+            "columnName": "people_list",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "senderName",
+            "columnName": "sender_name",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "remoteChannel",
+            "columnName": "remote_channel",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "remoteThread",
+            "columnName": "remote_thread",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "category",
+            "columnName": "category",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "channelId",
+            "columnName": "channel_id",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "flags",
+            "columnName": "flags",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isOngoing",
+            "columnName": "is_ongoing",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "actions",
+            "columnName": "actions",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "contentHash",
+            "columnName": "content_hash",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "wasCancelled",
+            "columnName": "was_cancelled",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "markedRead",
+            "columnName": "marked_read",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isDeleted",
+            "columnName": "is_deleted",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "moneyType",
+            "columnName": "money_type",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "moneyAmount",
+            "columnName": "money_amount",
+            "affinity": "REAL"
+          },
+          {
+            "fieldPath": "moneyCurrency",
+            "columnName": "money_currency",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "requiresAction",
+            "columnName": "requires_action",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_notifications_package_name",
+            "unique": false,
+            "columnNames": [
+              "package_name"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_notifications_package_name` ON `${TABLE_NAME}` (`package_name`)"
+          },
+          {
+            "name": "index_notifications_post_time",
+            "unique": false,
+            "columnNames": [
+              "post_time"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_notifications_post_time` ON `${TABLE_NAME}` (`post_time`)"
+          },
+          {
+            "name": "index_notifications_content_hash",
+            "unique": false,
+            "columnNames": [
+              "content_hash"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_notifications_content_hash` ON `${TABLE_NAME}` (`content_hash`)"
+          },
+          {
+            "name": "index_notifications_source",
+            "unique": false,
+            "columnNames": [
+              "source"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_notifications_source` ON `${TABLE_NAME}` (`source`)"
+          },
+          {
+            "name": "index_notifications_type",
+            "unique": false,
+            "columnNames": [
+              "type"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_notifications_type` ON `${TABLE_NAME}` (`type`)"
+          },
+          {
+            "name": "index_notifications_content_hash_package_name_post_time",
+            "unique": false,
+            "columnNames": [
+              "content_hash",
+              "package_name",
+              "post_time"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_notifications_content_hash_package_name_post_time` ON `${TABLE_NAME}` (`content_hash`, `package_name`, `post_time`)"
+          }
+        ]
+      },
+      {
+        "tableName": "config",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`key` TEXT NOT NULL, `enabled` INTEGER NOT NULL, `blocked_terms` TEXT, `ignore_patterns` TEXT, `ignore_repeat_sec` INTEGER NOT NULL, `skip_if_remote` INTEGER NOT NULL, `skip_screen_off` INTEGER NOT NULL, `skip_in_call` INTEGER NOT NULL, PRIMARY KEY(`key`))",
+        "fields": [
+          {
+            "fieldPath": "key",
+            "columnName": "key",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "enabled",
+            "columnName": "enabled",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "blockedTerms",
+            "columnName": "blocked_terms",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "ignorePatterns",
+            "columnName": "ignore_patterns",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "ignoreRepeatSec",
+            "columnName": "ignore_repeat_sec",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "skipIfRemote",
+            "columnName": "skip_if_remote",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "skipWhenScreenOff",
+            "columnName": "skip_screen_off",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "skipWhenInCall",
+            "columnName": "skip_in_call",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "key"
+          ]
+        }
+      },
+      {
+        "tableName": "oauth_tokens",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`provider` TEXT NOT NULL, `access_token` TEXT NOT NULL, `refresh_token` TEXT, `expires_at` INTEGER, `user_id` TEXT, `team_id` TEXT, PRIMARY KEY(`provider`))",
+        "fields": [
+          {
+            "fieldPath": "provider",
+            "columnName": "provider",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "accessToken",
+            "columnName": "access_token",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "refreshToken",
+            "columnName": "refresh_token",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "expiresAt",
+            "columnName": "expires_at",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "userId",
+            "columnName": "user_id",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "teamId",
+            "columnName": "team_id",
+            "affinity": "TEXT"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "provider"
+          ]
+        }
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '5f7ac10bc11768f9fa34798f29d867a8')"
+    ]
+  }
+}

@@ -399,7 +399,7 @@ class CaptureService : NotificationListenerService() {
             metadata["peopleList"] = peopleList ?: ""
 
             // Parse money info if MONEY type
-            val tiktokInfo = TikTokNotificationParser.parse(sbn.packageName, title, text)`n            if (tiktokInfo != null) {`n                metadata["senderName"] = tiktokInfo.senderHandle ?: ""`n                metadata["tiktokContent"] = tiktokInfo.content ?: ""`n            }`n`n            if (type == NotificationType.MONEY) {
+            if (type == NotificationType.MONEY) {
                 val moneyInfo = MoneyNotificationParser.parse(sbn.packageName, title, text)
                 if (moneyInfo != null) {
                     metadata["moneyType"] = moneyInfo.type
@@ -489,7 +489,7 @@ class CaptureService : NotificationListenerService() {
             type = ctx.type.name,
             postTime = ctx.postTime,
             title = ctx.title,
-            text = ctx.metadata["tiktokContent"] as? String ?: ctx.text,
+            text = ctx.text,
             bigText = ctx.metadata["bigText"] as? String
                 ?: extras?.getCharSequence(Notification.EXTRA_BIG_TEXT)?.toString(),
             conversationTitle = extras?.getCharSequence(Notification.EXTRA_CONVERSATION_TITLE)?.toString(),
@@ -497,7 +497,7 @@ class CaptureService : NotificationListenerService() {
             subText = ctx.metadata["subText"] as? String,
             textLines = ctx.metadata["textLines"] as? String,
             peopleList = ctx.metadata["peopleList"] as? String,
-            senderName = ctx.metadata["senderName"] as? String ?: extras?.getCharSequence(Notification.EXTRA_TITLE)?.toString(),
+            senderName = ctx.metadata["senderName"] as? String,
             remoteChannel = ctx.metadata["channel"] as? String,
             remoteThread = ctx.metadata["thread"] as? String,
             category = sbn?.notification?.category,
