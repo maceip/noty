@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.ksp)
     alias(libs.plugins.room)
+    alias(libs.plugins.kover)
 }
 
 android {
@@ -13,9 +14,12 @@ android {
 
     defaultConfig {
         minSdk = 26
-        targetSdk = 35
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    lint {
+        targetSdk = 35
     }
 
     buildTypes {
