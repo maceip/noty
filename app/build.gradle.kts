@@ -79,6 +79,9 @@ dependencies {
     // DataStore
     implementation(libs.androidx.datastore.preferences)
 
+    // Compose BOM
+    implementation(platform(libs.compose.bom))
+
     // Compose
     implementation(libs.compose.ui)
     implementation(libs.compose.ui.tooling.preview)
